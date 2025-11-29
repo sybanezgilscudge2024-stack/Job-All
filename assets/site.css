@@ -1,0 +1,410 @@
+/* Shared site styles: sidebar sizing and full-height layout */
+html, body {
+  height: 100%;
+  margin: 0;
+  color: rgb(0, 0, 0);
+  font-family: 'Archivo', sans-serif;
+}
+body {
+
+    background-color: #F5F5F5 !important;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Ensure the main flex layout fills the viewport */
+.d-flex {
+  min-height: 100vh;
+}
+
+
+
+/* Content area should fill remaining space and scroll if content overflows */
+.content-area {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 100vh;
+  overflow: auto;
+}
+
+/* Small helper to keep mobile toggle visible */
+.content-area > .btn.d-lg-none {
+  z-index: 1100;
+}
+
+
+.table-todo{
+
+    border-radius: 10px;
+}
+
+.bg-primary {
+    background-color: #A294F9 !important;
+}
+
+
+
+.btn-light {
+    border : none !important;
+    background-color: #CDC1FF !important;
+
+}
+
+.btn-light:hover {
+    background-color: #b7a5fc !important;
+
+}
+
+.btn-primary {
+    border : none !important;
+    background-color: #A294F9 !important;
+}
+
+
+
+.btn-primary:hover {
+    background-color: #b7a5fc !important;
+
+}
+
+
+
+
+
+.btn {
+    color: white !important;
+    border-radius: 0px !important;
+    
+
+}
+
+
+
+#sidebarMenu {
+  position: fixed;
+  flex-shrink: 0;
+  display: flex;
+  min-width: 80px;
+    width: 350px;
+    min-height: 100vh;
+    overflow: hidden;
+    transition: width 0.3s ease;
+    z-index: 12;
+}
+
+#sidebarMenu.sidebar-collapsed {
+    width: 60px;
+}
+
+#sidebarMenu .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0.65rem 1rem;
+    transition: background-color 0.2s;
+}
+
+
+
+
+
+#sidebarMenu .icon {
+    display: inline-flex;
+    width: 24px;
+    justify-content: normal;
+}
+
+
+
+
+
+
+#sidebarMenu .label {
+
+    white-space: nowrap; /* Prevents text from wrapping */
+    overflow: hidden;    /* Hides text if container is too small */
+    text-overflow: ellipsis; /* Adds "..." if text overflows */
+
+
+
+    font-size: 1;
+    opacity: 1;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateX(0);
+}
+
+#sidebarMenu.sidebar-collapsed .label {
+    opacity: 0;
+    transform: translateX(-10px);
+    pointer-events: none;
+}
+
+#sidebarMenu.sidebar-collapsed .nav-link {
+    justify-content: normal;
+}
+
+
+
+#sidebarMenu .items {
+    max-height: 80px;
+    overflow: hidden;
+}
+
+
+
+
+/* Push logout to bottom automatically */
+#sidebarMenu .logout {
+    margin-top: auto; /* works because sidebar uses flex-column */
+}
+
+/* Optional: adjust font size and spacing */
+#sidebarMenu .nav-item .nav-link {
+    font-size: 2.0rem;
+    padding: 0.65rem 1rem;
+}
+
+
+
+
+.logo {
+  font-size: 200px !important;
+}
+
+
+#sidebarMenu .logout .icon {
+    /* display: inline-flex; */
+    /* width: 24px; */
+    justify-content: normal;
+}
+
+#sidebarMenu.sidebar-collapsed .logout .label {
+    opacity: 0;
+    transform: translateX(-10px);
+    pointer-events: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+.dashboard-container {
+    display: flex;
+    min-height: 90vh;
+    
+}
+
+/* Dashboard content stays full width */
+.dashboard-content {
+    /* width: 100%; */
+    display: flex;
+    min-height: 60vh;
+    background-color: #F5F5F5;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.dashboard_element {
+    /* flex: 1; */
+    flex-shrink: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    
+    
+}
+
+
+.dashboard-image {
+  position : fixed;
+  top: 5%;
+  left: 5%;
+    width: 90%;
+    height: auto;
+    z-index: -1;
+    
+}
+
+
+
+
+.dashboard-text {
+  display: flex;
+  flex-direction: column;
+  position: absolute;    
+  z-index: 10; 
+  top: 40%;  
+  left: 20%;
+  color: white;
+  font-size: 1rem;
+            /* remove extra margin if needed */
+               /* text color */
+}
+
+.dashboard-buttons {
+    display: flex;
+    justify-content: center;
+
+    gap: 3rem;
+    
+}
+
+
+
+
+
+
+
+.dashboard-text h1 {
+font-size: 2.5rem;
+}
+.transparent-bg {
+    background-color: transparent; /* ensure headings and paragraphs have no background */           /* optional spacing */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Dark theme overrides when html[data-bs-theme="dark"] is set (Bootstrap 5.3 data-bs-theme) */
+html[data-bs-theme="dark"] {
+  color: #e9edf0;
+}
+
+html[data-bs-theme="dark"] body {
+  background-color: #0f1720;
+  background-image: none;
+  color: white;
+}
+
+html[data-bs-theme="dark"] .bg-primary {
+  background-color: #1f2937 !important;
+}
+
+html[data-bs-theme="dark"] .card {
+  background-color: #111827;
+  color: #e5e7eb;
+}
+
+html[data-bs-theme="dark"] .table-dark {
+  background-color: #0b1220;
+}
+
+html[data-bs-theme="dark"] .table > tbody > tr {
+  color: #e5e7eb;
+}
+
+
+
+
+.badge-priority-high {
+    background-color: #dc3545;
+    color: #fff;
+}
+.badge-priority-medium {
+    background-color: #ffc107;
+    color: #212529;
+}
+.badge-priority-low {
+    background-color: #198754;
+    color: #fff;
+}
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Responsive: Convert sidebar to top navbar on mobile (768px and below) */
+@media screen and (max-width: 768px) {
+    .d-flex {
+        flex-direction: column;
+    }
+
+    #sidebarMenu {
+        width: 100%;
+        min-width: 100%;
+        height: auto;
+        position: static;
+        border-bottom: 2px solid #ddd;
+    }
+
+    .sidebar {
+        height: auto;
+    }
+
+    .sidebar .nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .sidebar .nav-item {
+        margin-right: 1rem;
+    }
+
+    .content-area {
+        min-height: calc(100vh - 60px);
+    }
+
+    .position-absolute.bottom-0 {
+        position: static !important;
+        border-top: 1px solid #ddd;
+        margin-top: 1rem;
+    }
+
+    /* Ensure collapse works on mobile */
+    .sidebar.collapse:not(.show) {
+        display: none;
+    }
+
+    .sidebar.collapse.show {
+        display: flex;
+        width: 100%;
+    }
+}

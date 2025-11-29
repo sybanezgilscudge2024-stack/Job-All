@@ -1,0 +1,252 @@
+/* ===========================
+   COLOR PALETTE VARIABLES
+=========================== */
+:root {
+    --clr-lightest: #F5EFFF;
+    --clr-light: #E5D9F2;
+    --clr-mid: #CDC1FF;
+    --clr-primary: #A294F9;
+
+    --clr-text-dark: #333;
+    --clr-text-light: #fff;
+    --clr-text-primary: #9747FF;
+}
+
+/* ===========================
+   BACKGROUND WITH GRADIENT + PNG OVERLAY
+=========================== */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: "Archivo", sans-serif;
+    font-weight: 400;
+    /* Regular */
+    font-size: 12px;
+
+    /* PNG on top — Gradient underneath */
+    background:
+        url("../assets/images/bg-overlay.png") center/cover no-repeat,
+        linear-gradient(to bottom, #ffffff 0%, #E5D9F2 70%, #CDC1FF 90%, #A294F9 100%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-attachment: fixed;
+}
+
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* ===========================
+   LOGIN CARD STYLING
+=========================== */
+.login-container {
+    width: 380px;
+    padding: 40px 30px;
+    height: 500px;
+
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+
+    text-align: left;
+    /* ensures input edges align properly */
+}
+
+.logo-title-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 25px;
+    margin-right: 5px;
+}
+
+/* Logo + Title side-by-side */
+.logo-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.login-container img.logo {
+    width: 70px;
+    height: 70px;
+}
+
+.login-title {
+    font-family: "Bowlby One", sans-serif;
+    font-size: 39px;
+    font-weight: 900;
+
+    background: linear-gradient(180deg, var(--clr-primary), var(--clr-text-primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* REAL shadow behind gradient text */
+    filter: 
+    /* Fake stroke/border (tight glow) */
+        drop-shadow(0 0 3px rgba(255, 255, 255, 1))
+
+     /* Only-below shadow */
+        drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.5));
+    
+}
+
+
+/* ===========================
+   INPUT FIELDS
+=========================== */
+.input-group {
+    margin-bottom: 20px;
+    width: 92.5%;
+}
+
+.input-group label {
+    color: var(--clr-primary);
+    margin-bottom: 3px;
+
+    display: flex;
+    justify-content: space-between;
+    /* allows Forgot Password on the right */
+    align-items: center;
+}
+
+.label-row {
+    display: flex;
+    justify-content: space-between;
+    /* puts them on opposite sides */
+    align-items: center;
+    width: 100%;
+    margin-bottom: 3px;
+}
+
+.label-row label {
+    color: var(--clr-primary);
+}
+
+.label-row .forgot {
+    color: #a3a3a3;
+    text-decoration: none;
+}
+
+.label-row .forgot:hover {
+    text-decoration: underline;
+}
+
+
+/* Inputs aligned properly inside container */
+.input-group input {
+    width: 100%;
+    padding: 12px;
+
+    font-family: "Archivo", sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+
+    border: 2px solid var(--clr-light);
+    border-radius: 10px;
+
+    outline: none;
+    background: var(--clr-light);
+    transition: .25s ease-in-out;
+
+    color: var(--clr-text-primary);
+}
+
+.input-group input:focus {
+    border-color: var(--clr-primary);
+    box-shadow: 0 0 8px rgba(162, 148, 249, 0.4);
+}
+
+
+/* ===========================
+   BUTTON
+=========================== */
+.login-btn {
+    width: 100%;
+    padding: 12px;
+
+    font-size: 17px;
+    font-weight: 700;
+
+    color: white;
+    background: #C4B6FF;
+
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+    margin-top: 10px;
+    transition: 0.25s;
+}
+
+.login-btn:hover {
+    background: #8b7cf4;
+    transform: translateY(-2px);
+}
+
+/* ===========================
+   REGISTER LINK
+=========================== */
+.register-text {
+    margin-top: 120px;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    color: black;
+    /* required */
+}
+
+/* "Sign up" beside text with primary color */
+.register-text a {
+    color: var(--clr-primary);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.register-text a:hover {
+    text-decoration: underline;
+}
+
+.remember-wrapper {
+    width: 100%;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+.remember-me {
+    font-family: "Archivo", sans-serif;
+    font-size: 12px;
+    color: var(--clr-primary);
+
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.remember-me input {
+    accent-color: var(--clr-primary);
+    /* modern checkbox styling */
+}

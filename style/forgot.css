@@ -1,0 +1,175 @@
+/* ===========================
+   COLOR PALETTE VARIABLES
+=========================== */
+:root {
+    --clr-lightest: #F5EFFF;
+    --clr-light: #E5D9F2;
+    --clr-mid: #CDC1FF;
+    --clr-primary: #A294F9;
+
+    --clr-text-dark: #333;
+    --clr-text-light: #fff;
+    --clr-text-primary: #9747FF;
+}
+
+/* ===========================
+   BACKGROUND WITH GRADIENT + PNG OVERLAY
+=========================== */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: "Archivo", sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+
+    background:
+        url("../assets/images/bg-overlay.png") center/cover no-repeat,
+        linear-gradient(to bottom, #ffffff 0%, #E5D9F2 70%, #CDC1FF 90%, #A294F9 100%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-attachment: fixed;
+}
+
+/* ===========================
+   CARD / GLASS CONTAINER
+=========================== */
+.login-container {
+    width: 380px;
+    padding: 40px 30px;
+    height: 430px;  /* slightly smaller since no login fields */
+
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+
+    text-align: left;
+}
+
+/* ===========================
+   LOGO + TITLE
+=========================== */
+.logo-title-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.login-container img.logo {
+    width: 70px;
+    height: 70px;
+}
+
+.login-title {
+    font-family: "Bowlby One", sans-serif;
+    font-size: 32px;
+    font-weight: 900;
+
+    background: linear-gradient(180deg, var(--clr-primary), var(--clr-text-primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    filter:
+        drop-shadow(0 0 3px rgba(255, 255, 255, 1))
+        drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.5));
+}
+
+.subtitle {
+    margin-top: -15px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--clr-text-dark);
+    font-weight: 600;
+}
+
+/* ===========================
+   INPUT STYLING
+=========================== */
+.input-group {
+    margin-top: 25px;
+    margin-bottom: 20px;
+    width: 92.5%;
+}
+
+.input-group label {
+    color: var(--clr-primary);
+    font-size: 13px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+
+    font-family: "Archivo", sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+
+    border: 2px solid var(--clr-light);
+    border-radius: 10px;
+    outline: none;
+
+    background: var(--clr-light);
+    transition: .25s ease-in-out;
+
+    color: var(--clr-text-primary);
+}
+
+.input-group input:focus {
+    border-color: var(--clr-primary);
+    box-shadow: 0 0 8px rgba(162, 148, 249, 0.4);
+}
+
+/* ===========================
+   BUTTON
+=========================== */
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    color: white;
+    background: #C4B6FF;
+
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.login-btn:hover {
+    background: #8b7cf4;
+    transform: translateY(-2px);
+}
+
+/* ===========================
+   BACK TO LOGIN LINK
+=========================== */
+.register-text {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 14px;
+    color: black;
+}
+
+.register-text a {
+    color: var(--clr-primary);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.register-text a:hover {
+    text-decoration: underline;
+}
