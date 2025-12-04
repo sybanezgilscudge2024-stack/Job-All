@@ -75,7 +75,7 @@
             <li class="nav-item">
                 <div class="nav-link text-white items">
                     <span class="icon"><i class="bi bi-person-square"></i></span>
-                    <a class = "label nav-link text-white " href="profile.php" >Profile
+                    <a class = "label nav-link text-white " href="profilenew.php" >Profile
                 </a>
                 </div>
             </li>

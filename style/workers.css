@@ -1,0 +1,105 @@
+body {
+    margin: 0;
+    font-family: "Archivo", sans-serif;
+    background: #f7eefe;
+}
+
+.main-header {
+    width: 100%;
+    padding: 12px 30px;
+    background: #e8d5ff;
+    color: #555;
+    font-size: 20px;
+}
+
+.layout {
+    display: flex;
+    height: calc(100vh - 50px);
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 110px;
+    background: #b394ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    gap: 40px;
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+    background: white;
+    opacity: 0.6;
+    border-radius: 10px;
+}
+
+.logout {
+    margin-top: 160px;
+}
+
+/* CONTENT */
+.content {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+.workers-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 35px;
+}
+
+.card {
+    background: #ccb6ff;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    min-height: 190px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.avatar-box img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+h3 {
+    margin: 10px 0 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.job {
+    font-size: 13px;
+    color: #444;
+    margin-bottom: 4px;
+}
+
+.handle {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.meta {
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.empty {
+    background: #d7c4ff;
+    box-shadow: none;
+}

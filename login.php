@@ -2,31 +2,40 @@
 session_start();
 include "db.php";
 
+// Avoid warnings by initializing variables
+$error = "";
+
 // When login form is submitted
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    $email = mysqli_real_escape_string($conn, $_POST["email"]);
-    $password = $_POST["password"];
+    $email = mysqli_real_escape_string($conn, $_POST["email"] ?? "");
+    $password = $_POST["password"] ?? "";  // Prevent undefined array key
 
     // Check if user exists
-    $query = "SELECT * FROM users WHERE email = '$email' LIMIT 1";
+    $query = "SELECT * FROM profiles WHERE email = '$email' LIMIT 1";
     $result = mysqli_query($conn, $query);
 
     if ($result && mysqli_num_rows($result) === 1) {
         $user = mysqli_fetch_assoc($result);
 
-        // Validate password
+        // If your DB does NOT store hashed passwords, remove password_verify and use:
+        // if ($password === $user["password"]) {
+        // BUT I recommend hashed passwords.
+
         if (password_verify($password, $user["password"])) {
+
             // Create session
             $_SESSION["user_id"] = $user["id"];
-            $_SESSION["user_name"] = $user["name"];
-            $_SESSION["user_role"] = $user["role"]; // applicant/employer/admin
+            $_SESSION["user_name"] = $user["fname"] . " " . $user["lname"]; 
+            $_SESSION["user_role"] = $user["role"]; // if you have this column
 
             header("Location: dashboard.php");
             exit;
+
         } else {
             $error = "Incorrect password!";
         }
+
     } else {
         $error = "Email not found!";
     }
@@ -85,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </form>
 
         <p class="register-text">
-            Don’t have an account? <a href="register.php">Sign up</a>
+            Don’t have an account? <a href="profile-setup/index.php">Sign up</a>
         </p>
     </div>
 

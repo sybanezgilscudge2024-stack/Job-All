@@ -1,0 +1,177 @@
+
+
+
+
+
+.profile-container {
+/* border: 10px solid green; */
+  display: flex;
+  height: 100vh;
+  width: 100%;
+overflow: auto;
+
+}
+
+/* Dashboard content stays full width */
+.profile-content {
+    /* width: 100%; */
+    
+  
+    
+    min-height: 60vh;
+    background-color: #F5F5F5;
+    padding: 20px;
+    overflow: hidden;
+}
+
+
+
+.profile-table {
+    /* border: 20px solid green; */
+    display: flex;
+    position: absolute;
+    width: 80%;
+    height: 100%;
+    z-index: 10;
+    left: 10%;
+    color: white;
+    font-size: 1rem;
+    overflow: hidden;
+    gap: 10%;
+    justify-content: space-between;
+    align-items: stretch;
+    overflow-y: auto;
+}
+
+
+
+
+
+
+.postajob-table {
+    /* border: 20px solid green; */
+    display: flex;               /* enable flex layout */
+    position: absolute;   
+    width: 80%; 
+    height: 80%;
+    z-index: 10;
+    left: 10%;
+    color: white;
+    font-size: 1rem;
+    /* Flex behavior */
+    gap: 10%;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.contact-table {
+    /* border: 20px solid green; */
+   position: absolute;   
+    width: 80%; 
+    height: 80%;
+    z-index: 10; 
+    top: 20%;  
+    left: 20%;
+    color: white;
+    font-size: 1rem;
+
+    overflow: hidden;
+
+    /* Flex behavior */
+    gap: 10%;
+    justify-content: space-between;
+    align-items: stretch;
+
+}
+
+
+
+
+
+
+
+
+.profile-table .right {
+    border: 20px solid rgb(53, 238, 136);
+
+    flex: 1;                     /* take the other half */
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+.dashboard-text h1 {
+font-size: 2.5rem;
+}
+.transparent-bg {
+    background-color: transparent; /* ensure headings and paragraphs have no background */           /* optional spacing */
+}
+
+
+
+
+
+
+
+/* Left container */
+.profile-table .left {
+    /* border: 20px solid rgb(125, 68, 231); */
+    display: flex;               /* enable flex layout */
+    background-color: rgba(184, 163, 251, 0.62);
+    flex-direction: column;      /* stack children vertically */
+    justify-content: center;     /* center vertically */
+    align-items: center;         /* center horizontally */
+    flex: 1;                     /* take available space */
+    position: relative;
+    overflow: hidden;
+    border-radius: 10%;
+
+}
+
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #601CDE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.profile-picture img {
+    width: 150px;        /* match container width */
+    height: 150px;       /* match container height */
+    object-fit: cover;   /* fill container, crop if necessary */
+    display: block;      /* remove inline spacing */
+}
+
+
+.table-items {
+    display: flex;
+    width: 90%;
+    height: 100%;
+    border : 2px solid violet;
+    
+}

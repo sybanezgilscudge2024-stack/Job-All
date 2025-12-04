@@ -1,0 +1,38 @@
+/* Profile Card */
+.profile-card {
+    background: linear-gradient(180deg, #B8A3FB 0%, #A294F9 100%);
+    border-radius: 15px;
+    color: #fff;
+}
+
+/* Profile Picture */
+.profile-picture {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #601CDE;
+}
+
+.profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Account Info Box */
+.account-info {
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 10px;
+}
+
+/* Skills */
+.skills h6 {
+    margin-bottom: 0.5rem;
+}
+
+.skills .badge {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+}

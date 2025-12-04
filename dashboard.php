@@ -14,23 +14,41 @@
     <link 
     rel="stylesheet" 
     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
->
+    >
 
 
     <!-- Your custom styles -->
     <link rel="stylesheet" href="assets/site.css">
+    <style>
+        #sidebarMenu {
+  flex-shrink: 0;
+  display: flex;
+  min-width: 80px;
+  width: 330px;
+  height: 20%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: width 0.3s ease;
+  z-index: 12;
+}
+
+body{
+    overflow: auto;
+}
+</style>
+
 </head>
 <body>
 
 <div class = "dashboard-container">
-
 <?php include 'navbar.php'; ?>
+
 
 
  <div class = "dashboard-content transparent-bg">
 
         <div class = "dashboard_element">
-            <img src="assets/images/dashboard.png" alt="Dashboard Image" class="dashboard-image">
+            <img src="assets/images/newdashboard.jpg" alt="Dashboard Image" class="dashboard-image" style="object-fit:cover;">
         </div>
         <div class = "dashboard-text">
         <h1><b>Local Work. Real Skills. <br>Found Here.</b></h1>
@@ -40,8 +58,8 @@
         seconds. Get hired fast.</p>
 
         <div class = "dashboard-buttons">
-        <button class="btn btn-light">Post a Job</button>
-        <button class="btn btn-primary">Apply a Job</button>
+        <button onclick="window.location.href='postajob.php'" class="btn btn-light">Post a Job</button>
+        <button onclick="window.location.href='applyworkskill.php'" class="btn btn-primary">Apply a Job</button>
    
     </div>
 

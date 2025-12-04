@@ -1,0 +1,406 @@
+/* ===========================
+   COLOR PALETTE VARIABLES
+=========================== */
+:root {
+    --clr-lightest: #F5EFFF;
+    --clr-light: #E5D9F2;
+    --clr-mid: #CDC1FF;
+    --clr-primary: #A294F9;
+
+    --clr-text-dark: #333;
+    --clr-text-light: #fff;
+    --clr-text-primary: #9747FF;
+    --clr-text-secondary: #4F378B;
+}
+
+/* ===========================
+   BACKGROUND WITH GRADIENT + PNG OVERLAY
+=========================== */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: "Archivo", sans-serif;
+    font-weight: 400;
+    /* Regular */
+    font-size: 12px;
+
+    /* PNG on top — Gradient underneath */
+    background:
+        linear-gradient(to bottom, #ffffff 0%, #E5D9F2 70%, #CDC1FF 100%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-attachment: fixed;
+}
+
+/* Wrapper to center content */
+.page-wrapper {
+    width: 100%;
+    max-width: 900px;
+    padding: 60px 40px;
+    margin-top: 40px;
+}
+
+/* HEADER */
+.main-header {
+    width: 100%;
+    padding: 8px 40px;
+    background: #A294F9;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    position: fixed;       /* Sticks at top */
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.brand-name{
+    color: #F5EFFF;
+    font-size: 35px;
+    letter-spacing: 1px;
+    font-family: "Bowlby One", sans-serif;
+
+}
+
+/* LOGO + TEXT HORIZONTAL ALIGNMENT */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* LOGO IMAGE */
+.logo {
+    height: 55px;
+    width: auto;
+}
+
+/* JOBALL TEXT */
+.brand-name {
+    font-size: 28px;
+    font-weight: 700;
+    color: white;
+}
+
+/* TITLE + SUBTITLE */
+.title {
+    font-family: 'Albert Sans', sans-serif;
+    font-size: 39px;
+    color: var(--clr-text-secondary);
+    font-weight: bold;
+    margin-bottom: -10px;
+    margin-top: 80px;
+    margin-left: -10px;
+
+}
+
+.subtitle {
+    font-family: 'Albert Sans', sans-serif;
+    font-size: 24px;
+    color: var(--clr-text-secondary);
+    margin-bottom: 40px;
+    
+}
+
+/* FORM LABELS */
+.form-box label {
+    font-family: 'Albert Sans', sans-serif;
+    font-size: 18px;
+    color: var(--clr-text-secondary);
+    display: block;
+    margin-bottom: 8px;
+}
+
+
+/* INPUTS */
+input, select {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1.5px solid var(--clr-text-secondary);
+    background: white;
+    font-size: 15px;
+    transition: 0.2s;
+    box-shadow: inset 1px 1px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+}
+
+input[type="checkbox"] {
+    box-shadow: none !important;
+    outline: none !important;
+    cursor: pointer;
+    accent-color: var(--clr-text-secondary);
+
+}
+
+input:focus, select:focus {
+    border-color: #8f6bff;
+    outline: none;
+}
+
+/* Two-side fields */
+.two-col {
+    display: flex;
+    justify-content: space-between;   /* pushes left + right apart */
+    gap: 50px;
+}
+
+.two-col > div {
+    flex: 1;                          /* fields take equal width */
+}
+
+/* Optional: add max width so inputs align nicely */
+.two-col > div input {
+    width: 100%;
+}
+
+/* Responsive / Mobile View */
+@media (max-width: 768px) {
+    .two-col {
+        flex-direction: column;       /* stack vertically */
+        gap: 20px;
+    }
+}
+
+/* Make responsive */
+@media (max-width: 768px) {   /* adjust size if needed */
+    .two-col {
+        flex-direction: column;   /* stack vertically */
+        gap: 20px;                /* smaller spacing on small screens */
+    }
+}
+
+/* Date drop-down row */
+.date-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+/* EXPERIENCE TOGGLE */
+.exp-label{
+    margin-top: 10px;
+}
+
+.exp-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.exp-text {
+    font-family: 'Albert Sans', sans-serif;
+    font-size: 15px;
+    color: #4b3e80;
+    margin-bottom: 6px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 48px;
+    height: 24px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.switch input { display: none; }
+
+.slider {
+    position: absolute;
+    inset: 0;
+    background: #ccc;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+
+.slider:before {
+    content: "";
+    position: absolute;
+    height: 19px;
+    width: 19px;
+    left: 3px;
+    top: 2px;
+    background: white;
+    border-radius: 50%;
+    transition: .3s;
+}
+
+.switch input:checked + .slider {
+    background: #7b4bff;
+}
+
+.switch input:checked + .slider:before {
+    transform: translateX(24px);
+}
+
+/* Hidden exp fields */
+
+.exp-fields {
+    margin-top: 20px;
+    display: none;
+}
+
+/* SAVE BUTTON */
+.save-btn {
+    padding: 14px 26px;
+    border-radius: 30px;
+    background: #7b4bff;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: 0.2s;
+}
+
+.save-btn:hover {
+    background: #6a42ff;
+}
+
+/* Make the page properly centered on large screens */
+@media (min-width: 1400px) {
+    .page-wrapper {
+        max-width: 800px;
+        margin: auto;
+    }
+}
+
+/* Section Container */
+.reg-section {
+    margin-top: 40px;
+    max-width: 520px;
+}
+
+/* Label styling */
+
+.reg-label {
+    font-size: 14px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 6px;
+    color: #3f3a52;
+}
+
+/* Dropdowns */
+.reg-input {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 6px;
+    border: 1px solid #dcd2f8;
+    background: white;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* Visibility section container */
+.visibility-section {
+    margin-top: 30px;
+}
+
+.vis-toggle{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+/* Section title */
+.visibility-section .section-title{
+    font-family: 'Albert Sans', sans-serif;
+    font-size: 20px;
+    color: var(--clr-text-secondary);
+    font-weight: bold;
+}
+
+/* Description */
+.visibility-section .section-desc {
+    font-family: 'Albert Sans', sans-serif;
+    font-size: 16px;
+    color: var(--clr-text-secondary);
+    margin-top: -10px;
+    margin-left: 10px;
+}
+
+/* Checkbox item */
+.checkbox-item {
+    position: relative;
+    display: inline-block;
+    width: 48px;
+    height: 24px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+/* Checkbox label text */
+.checkbox-label{
+    font-family: 'Albert Sans', sans-serif;
+    font-size: 16px;
+    color: #4b3e80;
+    margin-bottom: 6px;
+}
+
+/* Remove last border */
+.checkbox-item:last-child {
+    border-bottom: none;
+}
+
+.visibility-note{
+    font-family: 'Albert Sans', sans-serif;
+    font-size: 15px;
+    color: #4b3e80;
+    margin-bottom: 6px;
+
+}
+
+/* Still in role */
+.still-role{
+    display: flex;
+    align-items: center;
+    margin-top: 8px;    
+    
+}
+
+.still-role-label {
+    position: relative;
+    display: inline-block;
+    width: 48px;
+    height: 24px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.still-role span {
+    font-family: 'Albert Sans', sans-serif;
+    font-size: 18px;
+    color: #4b3e80;
+    margin-top: -10px;
+}
+
+.submit-container {
+    margin-top: 40px;
+    display: flex;
+    justify-content: flex-start; /* align left */
+}
+
+.submit-btn {
+    padding: 12px 28px;
+    background: #7b4bff;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.submit-btn:hover {
+    background: #6839e6;
+}
