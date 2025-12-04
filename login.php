@@ -95,6 +95,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <p class="register-text">
             Don’t have an account? <a href="profile-setup/index.php">Sign up</a>
+
+            
         </p>
     </div>
 

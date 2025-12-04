@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="style/postajob.css">
     <link rel="stylesheet" href="assets/site.css">
     <link rel="stylesheet" href="assets/profile.css">
-
+    <link rel="stylesheet" href="profile-setup/spinner.css">
 <style>
 /* POPUP OVERLAY */
 .popup-overlay {
@@ -25,6 +25,7 @@
     align-items: center;
     z-index: 999999;
 }
+
 
 /* POPUP BOX */
 .popup-box {
@@ -57,16 +58,101 @@
     border-radius: 8px;
     cursor: pointer;
 }
+      #sidebarMenu {
+  flex-shrink: 0;
+  display: flex;
+  min-width: 80px;
+  width: 330px;
+  height: 20%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: width 0.3s ease;
+  z-index: 12;
+}
+
+
+
+
+/* ---- MOBILE RESPONSIVE ---- */
+/* ---- MOBILE & TABLET RESPONSIVE ---- */
+@media (max-width: 768px) {
+ 
+
+    .profile-container {
+        flex-direction: column;
+    }
+
+    .content-wrapper {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .postajob-table {
+        margin-left: 40px;
+    }
+
+    .grid-2 {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .btn-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .employment-wrapper {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .postajob-table {
+        padding: 0 5px;
+    }
+
+    .popup-box {
+        width: 90%;
+        padding: 25px;
+    }
+
+    .btn-row button {
+        width: 100%;
+    }
+
+    input, textarea, select {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    .lbl {
+        font-size: 0.85rem;
+    }
+}
+
+
+
 
 </style>
 
 </head>
+<!-- Hammering Preloader Modal -->
+<div id="hammerSpinnerModal" class="spinner-modal">
+  <div class="spinner-box">
+    <div class="hammer"></div>
+  </div>
+</div>
+
+
+
+
 <body>
 
 <div class="profile-container">
 <?php include 'navbar.php'; ?>
-
-<div class="page-wrapper content-area">
+    <div class=" content-wrapper">
     <div class="postajob-table">
         <main class="modal-card">
 
@@ -195,8 +281,9 @@
             </form>
         </main>
     </div>
+    </div>
 </div>
-</div>
+
 
 
 <!-- POPUP -->
@@ -211,6 +298,19 @@
 
 
 <script>
+    
+
+window.addEventListener('DOMContentLoaded', () => {
+  const preloader = document.getElementById('hammerSpinnerModal');
+  preloader.style.transition = 'opacity 0.5s';
+  preloader.style.opacity = '0';
+  setTimeout(() => preloader.style.display = 'none', 500);
+});
+
+
+
+
+
 // Employment type toggle
 const btnFull = document.getElementById("btn-full");
 const btnPart = document.getElementById("btn-part");

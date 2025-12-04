@@ -58,8 +58,8 @@ body {
   position: fixed;
   flex-shrink: 0;
   display: flex;
-  min-width: 80px;
-  width: 330px;
+  min-width: 10%;
+  width: 20%;
   min-height: 100vh;
   overflow-y: auto;
   overflow-x: hidden;
@@ -244,7 +244,6 @@ html[data-bs-theme="dark"] .table > tbody > tr {
         flex-direction: column;
     }
 
- 
 
     .sidebar {
         height: auto;
@@ -285,7 +284,7 @@ html[data-bs-theme="dark"] .table > tbody > tr {
 
 .content-area {
     /* margin-left: 330px;            */
-    width: calc(100% - 330px);
+    /* width: calc(100% - 330px); */
     transition: margin-left 0.3s ease, width 0.3s ease;
     min-width: 300px;
     /* padding: 2rem; */

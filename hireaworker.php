@@ -45,6 +45,7 @@ $result = $conn->query($sql);
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/site.css">
     <link rel="stylesheet" href="assets/profile.css">
+    <link rel="stylesheet" href="profile-setup/spinner.css">
 
     <style>
         .content-area {
@@ -112,13 +113,23 @@ $result = $conn->query($sql);
     </style>
 </head>
 
+
+<!-- Hammering Preloader Modal -->
+<div id="hammerSpinnerModal" class="spinner-modal">
+    <div class="spinner-box">
+        <div class="hammer"></div>
+    </div>
+</div>
+
+
+
 <body>
 
     <div class="d-flex">
         <?php include "navbar.php"; ?>
 
         <div class="content-area">
-            <h2  style="margin-left: 100px;">Hire a Worker</h2>
+            <h2 style="margin-left: 100px;">Hire a Worker</h2>
 
             <div class="card-grid">
 
@@ -227,12 +238,36 @@ $result = $conn->query($sql);
                     border-radius: 8px;
                     cursor: pointer;
                 }
+
+                #sidebarMenu {
+                    flex-shrink: 0;
+                    display: flex;
+                    min-width: 80px;
+                    width: 330px;
+                    height: 20%;
+                    overflow-y: auto;
+                    overflow-x: hidden;
+                    transition: width 0.3s ease;
+                    z-index: 12;
+                }
             </style>
 
             <script>
                 function closeHirePopup() {
                     document.getElementById('hireSuccessPopup').style.display = 'none';
                 }
+
+
+
+
+
+
+                window.addEventListener('DOMContentLoaded', () => {
+                    const preloader = document.getElementById('hammerSpinnerModal');
+                    preloader.style.transition = 'opacity 0.5s';
+                    preloader.style.opacity = '0';
+                    setTimeout(() => preloader.style.display = 'none', 500);
+                });
             </script>
 
 </body>

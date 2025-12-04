@@ -61,7 +61,7 @@ body{
         <button onclick="window.location.href='postajob.php'" class="btn btn-light">Post a Job</button>
         <button onclick="window.location.href='applyworkskill.php'" class="btn btn-primary">Apply a Job</button>
    
-    </div>
+        </div>
 
          </div >
          

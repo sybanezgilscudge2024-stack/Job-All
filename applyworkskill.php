@@ -24,14 +24,16 @@ if (!isset($_SESSION["user_id"])) {
 
     <link rel="stylesheet" href="assets/site.css">
     <link rel="stylesheet" href="assets/profile.css">
+    <link rel="stylesheet" href="profile-setup/spinner.css">
+
+
 
     <style>
         .modal-box {
-            position: absolute;
-            top: 10px;
-            left: 400px;
-            width: 900px;
-            height: 600px;
+            position: relative;
+            /* margin-left: 100px; */
+            width: 75vw;
+            /* height: auto; */
             background: white;
             padding: 30px;
             border-radius: 15px;
@@ -81,25 +83,60 @@ if (!isset($_SESSION["user_id"])) {
             height: 40px;
         }
 
-        #sidebarMenu {
+            #sidebarMenu {
+  flex-shrink: 0;
+  display: flex;
+  min-width: 80px;
+  width: 330px;
+  height: 20%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: width 0.3s ease;
+  z-index: 12;
+}
 
-            flex-shrink: 0;
-            display: flex;
-            min-width: 80px;
-            width: 330px;
-            min-height: 100vh;
-            overflow-y: auto;
-            overflow-x: hidden;
-            transition: width 0.3s ease;
-            z-index: 12;
-        }
+
+        .content-area {
+    /* margin-left: 330px;            */
+    /* width: calc(100% - 330px); */
+    transition: margin-left 0.3s ease, width 0.3s ease;
+    min-width: 300px;
+    /* padding: 2rem; */
+    overflow-y: auto;
+    height: 100%;
+}
+.content-wrapper {
+        margin-left: 100px;
+        padding: 40px;
+        margin-top: 10px;
+        /* width: 100%; */
+        display: flex;
+        justify-content: center;
+    }
+
+
+
+
+
+
+
+
     </style>
 </head>
 
-<body>
+<!-- Hammering Preloader Modal -->
+<div id="hammerSpinnerModal" class="spinner-modal">
+    <div class="spinner-box">
+        <div class="hammer"></div>
+    </div>
+</div>
 
-    <div class="profile-container">
+<body>
         <?php include 'navbar.php'; ?>
+        
+<div class="content-area">
+
+    <div class="content-wrapper">
 
         <div class="modal-box">
 
@@ -150,8 +187,19 @@ if (!isset($_SESSION["user_id"])) {
 
         </div>
     </div>
-
+       </div>                      
     <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const preloader = document.getElementById('hammerSpinnerModal');
+            preloader.style.transition = 'opacity 0.5s';
+            preloader.style.opacity = '0';
+            setTimeout(() => preloader.style.display = 'none', 500);
+        });
+
+
+
+
+
         const categories = <?php echo json_encode($categories); ?>;
 
         // Populate sub classification based on classification

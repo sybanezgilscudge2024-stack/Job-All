@@ -18,23 +18,35 @@
     <!-- Your custom styles -->
     <link rel="stylesheet" href="assets/site.css">
     <link rel="stylesheet" href="assets/profile.css">
+    <link rel="stylesheet" href="profile-setup/spinner.css">
 
 <style>
     /* ---- PAGE-SPECIFIC CONTACT STYLES ---- */
 
     /* Remove the old full-page flex centering */
-    body {
-        background: linear-gradient(to bottom, #f8f5ff, #d9cfff) !important;
-        padding: 0;
-        margin: 0;
-    }
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(to bottom, #f8f5ff, #d9cfff);
+    background-size: 100% 100%;   /* stretch gradient to full viewport height */
+    background-repeat: no-repeat; /* prevent repeating */
+    background-attachment: fixed; /* keeps it fixed while scrolling */
+    overflow-x: hidden;
+}
+
+
     /* DEFAULT — Sidebar expanded */
 
     
     .contact-wrapper {
-        margin-left: 200px;
+        margin-left: 100px;
         padding: 40px;
-        width: 100%;
+        margin-top: 10px;
+        /* width: 100%; */
         display: flex;
         justify-content: center;
     }
@@ -44,7 +56,7 @@
         padding: 30px;
         border-radius: 12px;
         width: 100%;
-        max-width: 650px;
+        max-width: 950px;
         box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
@@ -80,25 +92,67 @@
         background-color: #5e3bc1;
     }
 
-        #sidebarMenu {
+      #sidebarMenu {
+  flex-shrink: 0;
+  display: flex;
+  min-width: 80px;
+  width: 330px;
+  height: 20%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: width 0.3s ease;
+  z-index: 12;
+}
 
-    flex-shrink: 0;
-    display: flex;
-    min-width: 80px;
-    width: 330px;
-    min-height: 100vh;
-    overflow-y: auto;
-    overflow-x: hidden;
-    transition: width 0.3s ease;
-    z-index: 12;
+/* ---- MOBILE RESPONSIVE ---- */
+@media (max-width: 768px) {
+
+
+    /* Contact wrapper adjustments */
+    .contact-wrapper {
+        margin-left: 80px;
+        padding: 20px;
+        flex-direction: column;
+        align-items: center;
     }
+
+    /* Contact form adjustments */
+    .contact-form {
+        width: 100%;
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    /* Form input spacing */
+    .form-control,
+    .form-select {
+        margin-bottom: 12px;
+    }
+
+    /* Dashboard buttons or any buttons full width */
+    .btn-send {
+        width: 100%;
+        padding: 12px 0;
+    }
+}
+
+
 </style>
 </head>
+
+<!-- Hammering Preloader Modal -->
+<div id="hammerSpinnerModal" class="spinner-modal">
+    <div class="spinner-box">
+        <div class="hammer"></div>
+    </div>
+</div>
+
+
 
 <body>
 
 <!-- REQUIRED FLEX CONTAINER (This prevents downward shifting) -->
-<div class="d-flex">
+<div>
 
     <!-- SIDEBAR -->
     <?php include 'navbar.php'; ?>
@@ -154,6 +208,24 @@
     </main>
 
 </div> <!-- END FLEX -->
+<script>
+
+window.addEventListener('DOMContentLoaded', () => {
+  const preloader = document.getElementById('hammerSpinnerModal');
+  preloader.style.transition = 'opacity 0.5s';
+  preloader.style.opacity = '0';
+  setTimeout(() => preloader.style.display = 'none', 500);
+});
+
+
+
+
+
+
+
+
+</script>
 
 </body>
+
 </html>

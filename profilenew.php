@@ -55,6 +55,11 @@ $notifResult = $notifQuery->get_result();
 
     <link rel="stylesheet" href="assets/site.css">
     <link rel="stylesheet" href="assets/profile.css">
+    <link rel="stylesheet" href="profile-setup/spinner.css">
+
+
+
+
     <style>
         /* ——— SAME CSS YOU PROVIDED ——— */
         * {
@@ -64,18 +69,26 @@ $notifResult = $notifQuery->get_result();
             font-family: 'Archivo', sans-serif;
         }
 
-        body {
-            background: linear-gradient(180deg, #f9f9ff 0%, #e0d9ff 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-        }
+       body {
+    background: linear-gradient(180deg, #f9f9ff 0%, #e0d9ff 100%);
+    min-height: 100vh;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-repeat: no-repeat;      /* prevent repeating */
+    background-attachment: fixed;      /* stays fixed when scrolling */
+    background-size: cover;            /* ensures full coverage even on zoom */
+}
+
 
         .profile-container-inner {
             display: flex;
             gap: 40px;
-            max-width: 1000px;
-            width: 120%;
+            
+            width: 90%;
         }
 
         .profile-card {
@@ -88,6 +101,14 @@ $notifResult = $notifQuery->get_result();
             flex-direction: column;
             align-items: center;
         }
+
+        .profile-card {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
 
         .profile-card img {
             width: 120px;
@@ -194,25 +215,24 @@ $notifResult = $notifQuery->get_result();
             margin-top: 200px;
         }
 
-        #sidebarMenu {
-
-            flex-shrink: 0;
-            display: flex;
-            min-width: 80px;
-            width: 330px;
-            min-height: 100vh;
-            overflow-y: auto;
-            overflow-x: hidden;
-            transition: width 0.3s ease;
-            z-index: 12;
-        }
+             #sidebarMenu {
+  flex-shrink: 0;
+  display: flex;
+  min-width: 80px;
+  width: 330px;
+  height: 20%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: width 0.3s ease;
+  z-index: 12;
+}
         .profile-table {
     /* border: 20px solid green; */
     display: flex;
-    position: absolute;
     width: 90%;
-    height: 100%;
+    height: auto;
     z-index: 10;
+    top: 10px;
     left: 10%;
     color: white;
     font-size: 1rem;
@@ -226,14 +246,204 @@ $notifResult = $notifQuery->get_result();
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Tablet: medium screens */
+@media (max-width: 992px) {
+    .profile-container-inner {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        
+    }
+
+    .profile-card {
+        width: 90% !important;
+        /* max-width: 500px; */
+    }
+
+    .profile-right {
+        width: 90%;
+    }
+
+    .profile-table {
+        flex-direction: column;
+        gap: 20px;
+        left: 5%;
+        width: 90%;
+        margin-left: 50px;
+    }
+
+    .edit-btn {
+        margin-top: 20px;
+        align-self: center;
+    }
+}
+
+/* Mobile: small screens */
+@media (max-width: 576px) {
+    .profile-card img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile-card h2 {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .profile-card p.username {
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .profile-info p {
+        font-size: 12px;
+    }
+
+    .skills span {
+        font-size: 10px;
+        padding: 4px 8px;
+    }
+
+    .account-info {
+        font-size: 11px;
+        padding: 10px;
+    }
+
+    .about-me {
+        font-size: 13px;
+        padding: 15px;
+    }
+
+    .job-sections {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .job-sections div {
+        width: 100%;
+    }
+
+    .edit-btn {
+        width: 100%;
+        justify-content: center;
+        font-size: 12px;
+        padding: 8px 12px;
+        margin-top: 10px;
+    }
+
+    
+    .notifications-box {
+        width: 100%;
+        padding: 15px;
+    }
+}
+
+/* Extra small screens: very small phones */
+@media (max-width: 400px) {
+    .profile-card {
+        padding: 15px;
+    }
+
+    .profile-right {
+        padding: 10px;
+    }
+
+    .profile-table {
+        flex-direction: column;
+        gap: 20px;
+        left: 10%;
+        width: 90%;
+        margin-left: 50px;
+    }
+
+    .profile-card img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .profile-card h2 {
+        font-size: 18px;
+    }
+
+    .profile-card p.username {
+        font-size: 11px;
+    }
+
+    .skills span {
+        font-size: 9px;
+    }
+
+    .account-info {
+        font-size: 10px;
+    }
+
+    .about-me {
+        font-size: 12px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </style>
 </head>
+<!-- Hammering Preloader Modal -->
+<div id="hammerSpinnerModal" class="spinner-modal">
+    <div class="spinner-box">
+        <div class="hammer"></div>
+    </div>
+</div>
+
+
 
 <body>
+    
     <div class="profile-container">
         <?php include 'navbar.php'; ?>
 
         <div class="profile-table">
+            
             <div class="profile-container-inner">
 
                 <!-- LEFT PANEL -->
@@ -357,6 +567,16 @@ $notifResult = $notifQuery->get_result();
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
+    
+window.addEventListener('DOMContentLoaded', () => {
+  const preloader = document.getElementById('hammerSpinnerModal');
+  preloader.style.transition = 'opacity 0.5s';
+  preloader.style.opacity = '0';
+  setTimeout(() => preloader.style.display = 'none', 500);
+});
+
+
+
 function openEditModal() {
     const iframe = document.getElementById('editModalFrame');
     iframe.src = 'edit-profile-modal.php'; // or .html

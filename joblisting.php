@@ -22,15 +22,34 @@ $result = $conn->query($sql);
     <link rel="stylesheet" href="assets/site.css">
     <link rel="stylesheet" href="assets/joblisting.css">
 
+
+    <link rel="stylesheet" href="profile-setup/spinner.css">
+
     <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             background: linear-gradient(#f3e8ff, #e3d1ff);
             min-height: 100vh;
+            width: 100%;
             font-family: Arial, sans-serif;
+
+            background-repeat: no-repeat;
+            /* safety */
+            background-attachment: fixed;
+            /* prevents scroll stretching */
+            background-size: cover;
+            /* prevents zoom gaps */
         }
 
+
         .job-card {
-            margin-left: 200px;
+           
             background: #ffffff;
             border-radius: 12px;
             padding: 20px;
@@ -88,25 +107,59 @@ $result = $conn->query($sql);
             padding: 10px 25px;
         }
 
-         .apply-btn:hover{
-            background-color:#5c33cf !important;
-            
+        .apply-btn:hover {
+            background-color: #5c33cf !important;
+
         }
 
         #sidebarMenu {
-
             flex-shrink: 0;
             display: flex;
             min-width: 80px;
             width: 330px;
-            min-height: 100vh;
+            height: 20%;
             overflow-y: auto;
             overflow-x: hidden;
             transition: width 0.3s ease;
             z-index: 12;
         }
+
+
+        @media screen and (max-width: 768px) {
+    .d-flex {
+        flex-direction: column;
+    }
+}
+
+
+
+        .content-area {
+            position: relative;
+            left: 60px;
+            padding: 30px;
+            transition: margin-left .3s, width .3s;
+            width: 90%;
+            height: auto;
+        }
     </style>
 </head>
+
+
+
+
+<!-- Hammering Preloader Modal -->
+<div id="hammerSpinnerModal" class="spinner-modal">
+    <div class="spinner-box">
+        <div class="hammer"></div>
+    </div>
+</div>
+
+
+
+
+
+
+
 
 <body>
 
@@ -123,9 +176,9 @@ $result = $conn->query($sql);
                 <h2 class="text-center fw-bold mb-3" style="color:#5c33cf;">Job Listing</h2>
 
                 <div class="d-flex justify-content-center mb-4">
-                    <span class="tab-link active">Featured</span>
-                    <span class="tab-link">Full Time</span>
-                    <span class="tab-link">Part Time</span>
+                    <span class="tab-link active" style = "text-align: center;">Featured</span>
+                    <span class="tab-link" style = "text-align: center;">Full Time</span>
+                    <span class="tab-link" style = "text-align: center;">Part Time</span>
                 </div>
 
                 <!-- ========================= -->
@@ -181,6 +234,22 @@ $result = $conn->query($sql);
         </div>
 
     </div>
+
+
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const preloader = document.getElementById('hammerSpinnerModal');
+            preloader.style.transition = 'opacity 0.5s';
+            preloader.style.opacity = '0';
+            setTimeout(() => preloader.style.display = 'none', 500);
+        });
+    </script>
+
+
+
+
+
 
 </body>
 
